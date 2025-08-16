@@ -1,0 +1,29 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "17kanade_cloth001_3.0_f_t02.moc3",
+		"Textures": [
+			"17kanade_cloth001_3.0_f_t02.2048/texture_00.png"
+		],
+		"Physics": "17kanade_cloth001_3.0_f_t02.physics3.json",
+		"Motions": {
+			"w-kanade-glad01": [
+				{
+					"File": "motion/w-kanade-glad01.motion3.json"
+				}
+			]
+		}
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}

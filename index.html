@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visual Web Components</title>
+  <style>
+    @import "tailwindcss";
+
+    /* 自定义开关样式 */
+    #codeToggle:checked+div {
+      background-color: #3b82f6;
+    }
+
+    #codeToggle:checked+div+div {
+      transform: translateX(1rem);
+    }
+
+    /* 代码块和卡片高度控制 */
+    .code-example {
+      display: none;
+    }
+
+    .active .code-example {
+      display: block;
+    }
+
+    .active {
+      min-height: 540px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="max-w-7xl mx-auto p-6">
+      <h1 class="text-3xl font-bold text-center mb-8 text-gray-800">
+        Visual Web Components
+      </h1>
+      <div class="text-center text-gray-600 mb-8">No CSS, no JS, just HTML.</div>
+      <div class="flex justify-center mb-6">
+        <label class="flex items-center space-x-3 cursor-pointer">
+          <span class="text-gray-700 font-medium">Toggle Code</span>
+          <div class="relative">
+            <input type="checkbox" id="codeToggle" class="sr-only">
+            <div class="w-10 h-6 bg-gray-300 rounded-full shadow-inner transition-colors duration-300"></div>
+            <div class="absolute w-4 h-4 bg-white rounded-full shadow top-1 left-1 transition-transform duration-300">
+            </div>
+          </div>
+        </label>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+        <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
+          <h2 class="font-bold text-2xl text-gray-700 border-b border-b-gray-300 pb-2">
+            <pre>&lt;img&gt;</pre>
+          </h2>
+          <div class="flex justify-center items-center h-64 bg-gray-50 rounded">
+            <img src="/kanade.jpg" class="w-full h-full object-cover block" alt="Yoisaki Kanade" />
+          </div>
+          <div class="code-example">
+            <h3 class="text-sm font-semibold text-gray-600 mb-2">Code</h3>
+            <pre class="bg-gray-100 p-3 rounded text-xs overflow-x-auto"><code>&lt;img 
+  src="/kanade.jpg"
+  alt="Yoisaki Kanade"
+/&gt;</code></pre>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
+          <h2 class="font-bold text-2xl text-gray-700 border-b border-b-gray-300 pb-2">
+            <pre>&lt;video&gt;</pre>
+          </h2>
+          <div class="flex justify-center items-center h-64 bg-gray-50 rounded">
+            <video src="/3rd_anv_title_03.mp4" class="w-full h-full object-cover block" alt="3rd Anniversary Title"
+              autoplay muted loop></video>
+          </div>
+          <div class="code-example">
+            <h3 class="text-sm font-semibold text-gray-600 mb-2">Code</h3>
+            <pre class="bg-gray-100 p-3 rounded text-xs overflow-x-auto"><code>&lt;video 
+  src="/3rd_anv_title_03.mp4"
+  alt="3rd Anniversary Title"
+  autoplay
+  muted
+  loop
+&gt;&lt;/video&gt;</code></pre>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
+          <h2 class="font-bold text-2xl text-gray-700 border-b border-b-gray-300 pb-2">
+            <pre>&lt;svg&gt;</pre>
+          </h2>
+          <div class="flex justify-center items-center h-64 bg-gray-50 rounded">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66.145832 66.145835" class="h-48"
+              alt="Poppin'Party">
+              <g id="layer2">
+                <path transform="scale(0.26458333)" id="path1636"
+                  d="m 93.112739,246.4606 c -10.039434,-1.46264 -16.181212,-9.51065 -18.576066,-24.34156 -0.70044,-4.33769 -0.943197,-6.77015 -1.378492,-13.81259 -0.212013,-3.43005 -0.495086,-7.29389 -0.629052,-8.5863 -0.133967,-1.29242 -0.418214,-4.67951 -0.631659,-7.52688 -0.659526,-8.79814 -1.494316,-12.42035 -3.515093,-15.25222 -2.015681,-2.82472 -6.201355,-6.31793 -11.575045,-9.66011 -1.14962,-0.71501 -9.53378,-5.923 -18.631466,-11.57331 -9.097687,-5.65032 -17.593104,-11.06257 -18.878706,-12.02724 -6.242732,-4.6843 -9.8254149,-9.45028 -11.4659836,-15.253 -0.8018373,-2.83611 -0.804336,-7.21533 -0.00581,-10.18654 1.1918804,-4.43484 3.2466146,-7.86821 6.8303806,-11.41326 l 2.433186,-2.4069 16.920056,-9.75989 c 9.30603,-5.367938 18.786577,-10.797758 21.067883,-12.066265 5.279958,-2.935894 7.449814,-4.442459 9.423697,-6.54301 2.711376,-2.885377 3.57713,-5.142263 4.99895,-13.031511 C 71.47983,52.03186 76.40369,26.4008 76.953311,24.219411 79.629296,13.598755 83.969611,8.0214137 91.712819,5.2533185 93.485685,4.6195419 98.704962,4.363542 101.21114,4.787436 c 3.87153,0.6548263 7.77061,2.0464261 11.83143,4.963039 1.45763,1.04692 7.60465,5.891884 19.44228,18.014444 9.25259,9.475303 17.1018,17.376688 17.79628,17.874004 1.78192,1.276035 4.03083,3.063628 6.56066,3.680384 2.11437,0.515474 2.91298,0.534523 29.32142,0.699372 29.57568,0.18462 28.78862,0.145293 33.31482,1.664686 6.02837,2.023654 10.37375,6.093821 12.0245,11.262943 0.84554,2.647708 1.16488,7.152534 0.87441,12.335238 -0.18123,3.233645 -0.31943,4.038815 -1.08621,6.328358 -1.60883,4.803808 -4.40919,10.436919 -12.79131,25.730556 -5.3313,9.72723 -8.42105,16.00071 -9.26612,18.81409 -0.58665,1.95305 -0.68408,2.73476 -0.69246,5.55584 -0.009,3.04661 0.048,3.45033 0.79307,5.60708 0.84559,2.44786 1.95812,4.79172 4.35091,9.1664 0.79769,1.45841 5.02765,9.75428 9.39989,18.43528 8.37973,16.63777 9.18293,18.51118 9.95863,23.22783 0.53925,3.27894 0.33914,9.36878 -0.4066,12.37391 -1.53027,6.16649 -5.44927,10.24761 -11.38211,11.85292 -2.19557,0.59407 -5.4909,1.03266 -7.75892,1.03266 -1.59739,0 -36.39841,-4.26478 -44.25255,-5.42305 -8.35076,-1.23149 -12.56727,-1.31381 -14.97186,-0.29228 -0.99622,0.42322 -4.32487,2.80245 -6.36277,4.54794 -3.95284,3.38566 -21.47595,18.68374 -24.9174,21.75347 -6.23312,5.55987 -10.23201,8.36304 -14.64365,10.265 -4.76507,2.05433 -10.531703,2.88823 -15.234741,2.20305 z"
+                  style="fill:#ff3377;fill-opacity:1;stroke-width:0.02525381;stroke-miterlimit:4;stroke-dasharray:none" />
+              </g>
+              <g id="layer3">
+                <path transform="scale(0.26458333)" id="path1638"
+                  d="m 94.183996,243.47356 c -6.53669,-0.90172 -11.292132,-4.9988 -14.31692,-12.33484 -1.514059,-3.67206 -1.698624,-4.86096 -3.39964,-21.89913 -0.901339,-9.02823 -1.766565,-18.17643 -1.922727,-20.32932 -0.642942,-8.86378 -1.948625,-12.32994 -6.273954,-16.65527 -3.642883,-3.64288 -4.438805,-4.17915 -26.811893,-18.06491 -8.125415,-5.04301 -16.194008,-10.09644 -17.930208,-11.22985 -6.912153,-4.51235 -10.474134,-8.62771 -12.341321,-14.25866 -2.2656859,-6.83271 -0.496334,-13.50706 5.116332,-19.29981 3.123972,-3.22421 1.117515,-2.01634 41.696445,-25.100903 7.516903,-4.276218 11.123936,-7.891493 12.640725,-12.669606 0.721143,-2.271714 0.705814,-2.194442 5.165077,-26.036379 3.392852,-18.140267 4.236613,-22.038977 5.563011,-25.704656 2.684576,-7.419188 8.155704,-11.8740336 15.02731,-12.235933 4.145457,-0.2183241 8.168107,0.8337714 12.194347,3.18934 3.83456,2.243429 6.93976,5.109577 23.323,21.527538 11.07152,11.094982 16.83698,16.693979 17.89339,17.376767 1.88888,1.220845 3.67457,1.918254 6.68301,2.610082 2.19768,0.505385 3.18323,0.528174 29.7995,0.689076 29.35721,0.177474 28.30409,0.1316 32.08252,1.397468 5.52137,1.849796 9.49368,6.106314 10.59532,11.353369 0.49173,2.34209 0.50484,9.979825 0.021,12.2481 -1.07784,5.05326 -3.78019,10.767504 -12.04891,25.477977 -11.59388,20.62613 -13.37728,26.40374 -10.66433,34.549 0.67338,2.02175 2.81628,6.4918 4.74613,9.90034 2.2818,4.03016 16.54369,32.84261 17.3883,35.12855 1.49964,4.05874 1.82292,5.92954 1.81106,10.48033 -0.009,3.41597 -0.0989,4.35156 -0.58233,6.05205 -1.93457,6.8054 -6.73144,10.22674 -14.93823,10.6546 -2.35917,0.12299 -4.74085,-0.12989 -21.59201,-2.2926 -10.4172,-1.33696 -21.32685,-2.78983 -24.24367,-3.2286 -4.37939,-0.65878 -6.09521,-0.80069 -9.84898,-0.81457 l -4.54569,-0.0168 -1.51631,0.82285 c -2.22976,1.21004 -4.73412,3.27919 -19.33014,15.97093 -19.08964,16.5991 -20.84416,17.97917 -25.90565,20.37683 -4.10964,1.94675 -9.607724,2.90822 -13.533581,2.36666 z m 5.989984,-10.04266 c 3.3512,-1.05298 7.81226,-3.98053 12.16487,-7.98317 4.11357,-3.78281 32.90036,-28.56624 34.12429,-29.37863 0.78003,-0.51776 2.38922,-1.28504 3.57597,-1.70508 2.00787,-0.71067 2.40326,-0.76374 5.69326,-0.76416 3.05489,-5e-4 6.47087,0.38491 25.12754,2.83416 11.87561,1.55903 23.05368,3.06645 24.84016,3.34982 9.43901,1.49723 13.82816,0.56399 15.07192,-3.20464 0.44988,-1.36314 0.15676,-4.85679 -0.63284,-7.54266 -1.3187,-4.4857 -3.03397,-8.10279 -12.75408,-26.89531 -6.12962,-11.85079 -10.10085,-19.81488 -10.4933,-21.04376 -0.95203,-2.98109 -1.38481,-5.94835 -1.38316,-9.4833 0.002,-5.02961 0.94398,-9.89412 2.74332,-14.17219 0.37972,-0.90282 4.59026,-8.84504 9.35675,-17.649383 9.00163,-16.627182 10.26583,-19.167718 11.63816,-23.388062 1.05587,-3.2471 1.32702,-7.049423 0.63242,-8.868212 -1.32061,-3.457967 -4.9341,-5.026368 -13.00792,-5.645965 -2.04915,-0.157256 -13.58766,-0.257837 -28.92252,-0.252114 -21.69878,0.0081 -25.78161,-0.04693 -27.30817,-0.368052 -2.14408,-0.45102 -3.60146,-1.002773 -5.13608,-1.944468 -0.62503,-0.383544 -9.14819,-8.700249 -18.94036,-18.481566 -20.11385,-20.091571 -22.22564,-21.964873 -26.42507,-23.440853 -4.950552,-1.73998 -8.090384,0.635713 -10.391133,7.862257 -1.159471,3.641847 -1.731386,6.488271 -5.860569,29.168155 -2.867295,15.748862 -3.983453,21.368818 -4.488926,22.602163 -1.363542,3.327009 -5.348286,8.423463 -8.43087,10.78301 -0.742929,0.568668 -10.669435,6.289725 -22.058905,12.71346 -11.38947,6.42373 -20.992233,11.85629 -21.339473,12.07235 -1.823096,1.13438 -4.821173,3.68579 -5.727955,4.87458 -1.755173,2.30102 -1.970246,2.8763 -1.968732,5.266 0.0012,1.83991 0.09757,2.32697 0.674821,3.40927 1.345564,2.52283 4.453865,5.60611 8.25135,8.18494 0.819886,0.55677 10.39619,6.53151 21.280677,13.27719 10.884487,6.74569 20.642293,12.93585 21.684013,13.75592 2.503764,1.97105 6.082868,5.6013 7.505199,7.61245 1.531419,2.16539 3.020952,5.35561 3.486165,7.4665 0.209195,0.94922 1.115824,10.53312 2.014734,21.29756 1.744263,20.8876 1.838995,21.74603 2.828682,25.63262 2.214969,8.69839 6.35242,12.00459 12.575762,10.04917 z"
+                  style="fill:#ffffff;fill-opacity:1;stroke-width:0.02525381;stroke-miterlimit:4;stroke-dasharray:none" />
+                <path transform="scale(0.26458333)" id="path1640"
+                  d="m 118.56254,194.71673 c -3.59241,-0.52525 -6.95589,-2.1277 -7.22288,-3.44118 -0.0809,-0.39808 -4.98438,-23.87287 -10.89657,-52.1662 -7.269665,-34.78963 -10.749444,-51.934037 -10.749444,-52.961085 0,-1.327452 0.09543,-1.627359 0.757961,-2.381936 0.416879,-0.474799 1.354427,-1.14528 2.08344,-1.489958 1.576441,-0.745344 22.241933,-5.501463 27.099473,-6.236888 19.57146,-2.963091 35.74576,0.751309 46.15057,10.5984 1.35277,1.28026 3.18728,3.297342 4.07668,4.482405 2.94202,3.920012 5.43107,9.480172 6.58277,14.704942 0.64732,2.93659 0.7861,10.05268 0.26525,13.60124 -1.57618,10.7385 -7.60995,20.66355 -16.33251,26.86562 -2.84201,2.02077 -4.18221,2.69948 -15.63032,7.91562 -8.3252,3.79323 -11.25645,5.23949 -11.30934,5.57993 -0.0393,0.25276 1.01193,6.70606 2.33598,14.34069 1.32405,7.63462 2.40737,14.21245 2.40737,14.6174 0,2.6152 -4.04033,4.90136 -10.35407,5.85871 -2.51905,0.38196 -7.04477,0.43681 -9.26436,0.11229 z m 14.21173,-60.97932 c 1.25472,-0.52426 1.65322,-0.88134 4.87904,-4.37196 1.57695,-1.7064 3.08616,-3.21974 3.3538,-3.36298 0.29404,-0.15737 2.57643,-0.2512 5.76765,-0.2371 5.6886,0.0251 6.60499,-0.13342 7.40938,-1.28183 0.50226,-0.71708 0.5297,-1.98198 0.0667,-3.07219 -0.18984,-0.44695 -1.28264,-2.28471 -2.42845,-4.0839 -3.38437,-5.31425 -3.41118,-5.56626 -1.26907,-11.93083 2.75973,-8.199643 2.36306,-8.611507 -7.24473,-7.522171 -3.02852,0.343374 -5.52278,0.624959 -5.5428,0.625745 -0.02,7.83e-4 -1.72466,-1.317825 -3.78807,-2.930246 -5.43193,-4.244694 -7.30621,-4.939763 -8.66436,-3.213152 -0.74626,0.948724 -0.94821,1.990936 -1.28851,6.649902 -0.42311,5.792762 -0.33339,5.643522 -5.76912,9.595902 -1.94087,1.41123 -3.69159,2.81424 -3.8905,3.11781 -0.92875,1.41746 -0.67518,3.22064 0.61286,4.35803 0.33041,0.29177 2.53267,1.52131 4.8939,2.7323 6.14966,3.15395 6.17804,3.1874 7.19879,8.48774 0.82976,4.3086 1.43534,5.69701 2.77782,6.36869 1.07783,0.53925 1.76379,0.55572 2.92571,0.0702 z"
+                  style="fill:#ffffff;fill-opacity:1;stroke-width:0.02525381;stroke-miterlimit:4;stroke-dasharray:none" />
+              </g>
+            </svg>
+          </div>
+          <div class="code-example">
+            <h3 class="text-sm font-semibold text-gray-600 mb-2">Code</h3>
+            <pre class="bg-gray-100 p-3 rounded text-xs overflow-x-auto"><code>&lt;svg 
+  version="1.1" 
+  xmlns="http://www.w3.org/2000/svg" 
+  viewBox="0 0 66.145832 66.145835" 
+&gt;
+  &lt;!-- SVG paths and content --&gt;
+&lt;/svg&gt;</code></pre>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
+          <h2 class="font-bold text-2xl text-gray-700 border-b border-b-gray-300 pb-2">
+            <a href="https://github.com/LottieFiles/lottie-player" target="_blank">
+              <pre>&lt;lottie-player&gt;</pre>
+            </a>
+          </h2>
+          <div class="flex justify-center items-center h-64 bg-gray-50 rounded relative overflow-hidden">
+            <div class="absolute hv-center w-full">
+              <lottie-player autoplay loop
+                src="https://lottie.host/c404786e-2d84-4239-a092-5fa55366d5a7/DRPRrsgJH4.json"
+                class="w-full h-32 scale-200 relative top-2">
+              </lottie-player>
+            </div>
+          </div>
+          <div class="code-example">
+            <h3 class="text-sm font-semibold text-gray-600 mb-2">Code</h3>
+            <pre class="bg-gray-100 p-3 rounded text-xs overflow-x-auto"><code>&lt;lottie-player 
+  autoplay 
+  loop
+  src="https://lottie.host/c404786e-2d84-4239-a092-5fa55366d5a7/DRPRrsgJH4.json"
+&gt;
+&lt;/lottie-player&gt;</code></pre>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
+          <h2 class="font-bold text-2xl text-gray-700 border-b border-b-gray-300 pb-2">
+            <a href="https://github.com/alphardex/spine-viewer" target="_blank">
+              <pre>&lt;spine-viewer&gt;</pre>
+            </a>
+          </h2>
+          <div class="flex justify-center items-center h-64 bg-gray-50 rounded">
+            <spine-viewer src="/kanade/sd_main.skel" animation-name="w_pure_idle01_f"
+              class="w-full h-full relative -top-2"></spine-viewer>
+          </div>
+          <div class="code-example">
+            <h3 class="text-sm font-semibold text-gray-600 mb-2">Code</h3>
+            <pre class="bg-gray-100 p-3 rounded text-xs overflow-x-auto"><code>&lt;spine-viewer
+  src="/kanade/sd_main.skel"
+  animation-name="w_pure_idle01_f"
+&gt;&lt;/spine-viewer&gt;</code></pre>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
+          <h2 class="font-bold text-2xl text-gray-700 border-b border-b-gray-300 pb-2">
+            <a href="https://github.com/alphardex/live2d-viewer" target="_blank">
+              <pre>&lt;live2d-viewer&gt;</pre>
+            </a>
+          </h2>
+          <div class="flex justify-center items-center h-64 bg-gray-50 rounded">
+            <live2d-viewer src="/kanade-live2d/17kanade_cloth001_3.0_f_t02.model3.json" motion="w-kanade-glad01"
+              auto-interact="false" y="2.5" class="w-full h-full"></live2d-viewer>
+          </div>
+          <div class="code-example">
+            <h3 class="text-sm font-semibold text-gray-600 mb-2">Code</h3>
+            <pre class="bg-gray-100 p-3 rounded text-xs overflow-x-auto"><code>&lt;live2d-viewer
+  src="/kanade-live2d/17kanade_cloth001_3.0_f_t02.model3.json"
+  motion="w-kanade-glad01"
+  auto-interact="false"
+  y="2.5"
+&gt;&lt;/live2d-viewer&gt;</code></pre>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
+          <h2 class="font-bold text-2xl text-gray-700 border-b border-b-gray-300 pb-2">
+            <a href="https://modelviewer.dev/" target="_blank">
+              <pre>&lt;model-viewer&gt;</pre>
+            </a>
+          </h2>
+          <div class="flex justify-center items-center h-64 bg-gray-50 rounded">
+            <model-viewer src="/Bonsai.glb" camera-controls class="w-full h-full"></model-viewer>
+          </div>
+          <div class="code-example">
+            <h3 class="text-sm font-semibold text-gray-600 mb-2">Code</h3>
+            <pre class="bg-gray-100 p-3 rounded text-xs overflow-x-auto"><code>&lt;model-viewer 
+  src="/Bonsai.glb" 
+  camera-controls
+&gt;&lt;/model-viewer&gt;</code></pre>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
+          <h2 class="font-bold text-2xl text-gray-700 border-b border-b-gray-300 pb-2">
+            <a href="https://aframe.io/docs/1.7.0/introduction/" target="_blank">
+              <pre>&lt;a-frame&gt;</pre>
+            </a>
+          </h2>
+          <div class="flex justify-center items-center h-64 bg-gray-50 rounded">
+            <a-scene embedded>
+              <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+              <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+              <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+              <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+              <a-sky color="#ECECEC"></a-sky>
+            </a-scene>
+          </div>
+          <div class="code-example">
+            <h3 class="text-sm font-semibold text-gray-600 mb-2">Code</h3>
+            <pre class="bg-gray-100 p-3 rounded text-xs overflow-x-auto"><code>&lt;a-scene embedded&gt;
+  &lt;a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"&gt;&lt;/a-box&gt;
+  &lt;a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"&gt;&lt;/a-sphere&gt;
+  &lt;a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"&gt;&lt;/a-cylinder&gt;
+  &lt;a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"&gt;&lt;/a-plane&gt;
+  &lt;a-sky color="#ECECEC"&gt;&lt;/a-sky&gt;
+&lt;/a-scene&gt;</code></pre>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
+          <h2 class="font-bold text-2xl text-gray-700 border-b border-b-gray-300 pb-2">
+            <a href="https://css-doodle.com/" target="_blank">
+              <pre>&lt;css-doodle&gt;</pre>
+            </a>
+          </h2>
+          <div class="flex justify-center items-center h-64 bg-gray-50 rounded">
+            <css-doodle onclick="(function update(e){e.target.update();})(arguments[0])">
+              :doodle {
+              @grid: 8 / 16rem;
+              @shape: circle;
+              }
+              margin: 0.3rem;
+              background: hsla(@r(0,360), @r(50,75)%, @r(50,75)%, @r(0.8));
+              border-radius: @p(0 100%, 100% 0);
+              transform: scale(@r(0.75, 1.25));
+              transition: 0.3s;
+            </css-doodle>
+          </div>
+          <div class="code-example">
+            <h3 class="text-sm font-semibold text-gray-600 mb-2">Code</h3>
+            <pre class="bg-gray-100 p-3 rounded text-xs overflow-x-auto"><code>&lt;css-doodle onclick="(function update(e){e.target.update();})(arguments[0])"&gt;
+  :doodle {
+    @grid: 8 / 16rem;
+    @shape: circle;
+  }
+  margin: 0.3rem;
+  background: hsla(@r(0,360), @r(50,75)%, @r(50,75)%, @r(0.8));
+  border-radius: @p(0 100%, 100% 0);
+  transform: scale(@r(0.75, 1.25));
+  transition: 0.3s;
+&lt;/css-doodle&gt;</code></pre>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
+          <h2 class="font-bold text-2xl text-gray-700 border-b border-b-gray-300 pb-2">
+            <a href="https://kokomi-docs.netlify.app/guide/shader" target="_blank">
+              <pre>&lt;shader-toy&gt;</pre>
+            </a>
+          </h2>
+          <div class="flex justify-center items-center h-64 bg-gray-50 rounded relative overflow-hidden">
+            <div class="absolute top-[50%] left-[50%] translate-[-50%] -translate-y-[50%]">
+              <shader-toy class="block w-screen h-screen scale-75">
+                <script type="frag">
+                      vec2 cart2polar(vec2 uv){
+                          float phi=atan(uv.y,uv.x);
+                          float r=length(uv);
+                          return vec2(phi,r);
+                      }
+
+                      void mainImage(out vec4 fragColor,in vec2 fragCoord){
+                          vec2 uv=fragCoord/iResolution.xy;
+                          uv=(uv-.5)*2.;
+                          uv.x*=iResolution.x/iResolution.y;
+
+                          uv=cart2polar(uv);
+
+                          // spiral
+                          float c=sin(uv.y*20.+uv.x);
+                          fragColor=vec4(vec3(c),1.);
+                      }
+                    </script>
+              </shader-toy>
+            </div>
+          </div>
+          <div class="code-example">
+            <h3 class="text-sm font-semibold text-gray-600 mb-2">Code</h3>
+            <pre class="bg-gray-100 p-3 rounded text-xs overflow-x-auto"><code>&lt;shader-toy&gt;
+  &lt;script type="frag"&gt;
+    vec2 cart2polar(vec2 uv){
+        float phi=atan(uv.y,uv.x);
+        float r=length(uv);
+        return vec2(phi,r);
+    }
+
+    void mainImage(out vec4 fragColor,in vec2 fragCoord){
+        vec2 uv=fragCoord/iResolution.xy;
+        uv=(uv-.5)*2.;
+        uv.x*=iResolution.x/iResolution.y;
+
+        uv=cart2polar(uv);
+
+        // spiral
+        float c=sin(uv.y*20.+uv.x);
+        fragColor=vec4(vec3(c),1.);
+    }
+  &lt;/script&gt;
+&lt;/shader-toy&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js"></script>
+  <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+  <script type="module">
+    // 注册所有的第三方HTML标签
+    import "@google/model-viewer";
+    import "@alphardex/spine-viewer";
+    import * as kokomi from "kokomi.js";
+    import "@lottiefiles/lottie-player";
+    import "css-doodle";
+    import AFRAME from "aframe";
+    import "@alphardex/live2d-viewer";
+
+    kokomi.ShaderToyElement.register();
+  </script>
+  <script type="module">
+    // 代码块显示控制
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.getElementById('codeToggle');
+      const cards = document.querySelectorAll('.bg-white.rounded-lg.shadow-lg');
+
+      toggle.addEventListener('change', function () {
+        cards.forEach(card => {
+          if (this.checked) {
+            card.classList.add('active');
+          } else {
+            card.classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
