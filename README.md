@@ -17,7 +17,7 @@
 - **`<video>`** - 视频播放
 - **`<svg>`** - 矢量图形
 
-### 现代 Web 组件
+### 第三方 Web 组件
 - **`<lottie-player>`** - Lottie 动画播放器
 - **`<spine-viewer>`** - Spine 骨骼动画查看器
 - **`<live2d-viewer>`** - Live2D 模型查看器
@@ -25,6 +25,10 @@
 - **`<a-frame>`** - WebVR/AR 场景
 - **`<css-doodle>`** - CSS 艺术生成器
 - **`<shader-toy>`** - WebGL 着色器演示
+- **`<pixel-canvas>`** - 像素 Canvas 动画效果
+
+### 一切的基石标签
+- **`<div>`** - 容器，一切皆有可能
 
 ## 🚀 快速开始
 
@@ -52,35 +56,6 @@ npm run build
 npm run preview
 ```
 
-## 🛠️ 技术栈
-
-- **构建工具**: Vite (Rolldown)
-- **样式框架**: Tailwind CSS
-- **3D 渲染**: Three.js
-- **动画库**: 
-  - Lottie Player
-  - Spine Runtime
-  - Live2D Cubism
-- **WebGL**: Kokomi.js
-- **WebVR/AR**: A-Frame
-- **CSS 艺术**: CSS Doodle
-
-## 📁 项目结构
-
-```
-visual-web-components/
-├── index.html          # 主页面
-├── package.json        # 项目配置
-├── vite.config.ts      # Vite 配置
-├── public/             # 静态资源
-│   ├── kanade.jpg      # 示例图片
-│   ├── 3rd_anv_title_03.mp4  # 示例视频
-│   ├── Bonsai.glb      # 3D 模型文件
-│   ├── kanade/         # Spine 动画资源
-│   └── kanade-live2d/  # Live2D 模型资源
-└── dist/               # 构建输出目录
-```
-
 ## 🎮 使用方法
 
 1. **浏览组件**: 页面展示了各种 HTML 标签和 Web 组件的实际效果
@@ -88,24 +63,6 @@ visual-web-components/
 3. **交互体验**: 部分组件支持交互，如点击 CSS Doodle 可以重新生成图案
 4. **学习参考**: 每个组件都提供了基本的使用代码示例
 
-## 🔗 相关链接
-
-- [Lottie Player](https://github.com/LottieFiles/lottie-player)
-- [Spine Viewer](https://github.com/alphardex/spine-viewer)
-- [Live2D Viewer](https://github.com/alphardex/live2d-viewer)
-- [Model Viewer](https://modelviewer.dev/)
-- [A-Frame](https://aframe.io/)
-- [CSS Doodle](https://css-doodle.com/)
-- [Kokomi.js](https://kokomi-docs.netlify.app/)
-
 ## 📄 许可证
 
-本项目仅用于学习和演示目的。
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 Pull Request 来改进这个项目！
-
----
-
-**注意**: 本项目展示的是各种 Web 组件的基本用法，实际使用时请参考各组件的官方文档获取更详细的配置选项。
+MIT
